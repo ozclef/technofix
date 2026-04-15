@@ -1,0 +1,15 @@
+
+{
+  "id": "bocina_linkbits_rf118",
+  "titulo": "Bocina Link Bits RF-118 (usada)",
+  "descripcion": "Funciona. Sin bluetooth. Entrada USB y AUX 3.5mm. 30cm aprox de altura. Detalles estéticos.",
+  "precio": 150,
+  "negociable": true,
+  "imagen": "./img/bocina.jpg",
+  "categoria": "audio",
+  "marca": "Link Bits",
+  "modelo": "RF-118",
+  "estado": "usado",
+  "watts_nominal": 60,
+  "watts_peak": 300
+}
