@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technofix Marketplace</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    #cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 200px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 4px;
+    }
+    .card h2 {
+      font-size: 1.1em;
+      margin: 10px 0 5px;
+    }
+    .card p {
+      margin: 5px 0;
+      color: #555;
+    }
+    .card p:last-child {
+      font-weight: bold;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Catálogo Technofix</h1>
+    <p>Productos y servicios disponibles</p>
+  </header>
+
+  <main>
+    <section id="cards"></section>
+  </main>
+
+  <script type="module">
+    import data from './items.json' assert { type: 'json' };
+
+    const cont = document.getElementById('cards');
+
+    data.forEach(item => {
+      cont.innerHTML += `
+        <div class="card">
+          <img src="${item.imagen}" alt="${item.titulo}">
+          <h2>${item.titulo}</h2>
+          <p>${item.descripcion}</p>
+          <p>$${item.precio}</p>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
