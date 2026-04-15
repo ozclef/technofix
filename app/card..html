@@ -1,0 +1,81 @@
+
+<!---
+
+<div id="card"></div>
+
+<script>
+const item = {
+  id: "bocina_linkbits_rf118",
+  titulo: "Bocina Link Bits RF-118 (usada)",
+  descripcion: "Funciona. Sin bluetooth. USB y AUX 3.5mm.",
+  precio: 150,
+  imagen: "./img/bocina.jpg"
+};
+
+const cardDiv = document.getElementById("card");
+
+cardDiv.innerHTML = `
+  <div class="card">
+    <img src="${item.imagen}" alt="${item.titulo}" style="width:150px;">
+    <h2>${item.titulo}</h2>
+    <p>${item.descripcion}</p>
+    <p>$${item.precio}</p>
+  </div>
+`;
+</script>
+
+
+y tu JS mete ahí todas las cards.
+
+Y sí: puedes tener un archivo JSON separado
+y desde JS lo importas y lo iteras.
+
+Algo así (versión compacta y sin frameworks):
+
+
+<section id="cards"></section>
+---->
+
+
+
+<section id="cards"></section>
+
+<script type="module">
+import data from './items.json' assert { type: 'json' };
+
+const cont = document.getElementById('cards');
+
+data.forEach(item => {
+  cont.innerHTML += `
+    <div class="card">
+      <img src="${item.imagen}" alt="${item.titulo}">
+      <h2>${item.titulo}</h2>
+      <p>${item.descripcion}</p>
+      <p>$${item.precio}</p>
+    </div>
+  `;
+});
+</script>
+Y tu items.json sería un array:
+
+[
+  {
+    "id": "bocina_linkbits_rf118",
+    "titulo": "Bocina Link Bits RF-118 (usada)",
+    "descripcion": "Funciona. Sin Bluetooth. Entrada USB y AUX.",
+    "precio": 150,
+    "imagen": "./img/bocina.jpg"
+  }
+]
+Esa estructura ya es “autopintable”.
+
+Técnicamente ya tienes frontend dinámico.
+Backend no es obligatorio para esto; para un inventario chico, JSON local te funciona.
+
+Y aquí está el twist filosófico:
+
+ya no estás “pensando” en vender
+ya lo estás “materializando” en un archivo.
+
+el JSON es el átomo físico de tu vector de acción.
+esa es la diferencia entre “idea” y “sistema”.
